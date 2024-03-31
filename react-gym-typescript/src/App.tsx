@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Header } from "./components";
+import { ProgramsPage, DetailedTrainingProgramPage, MainPage } from "./pages";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import { Container, MainBackground, Background, Footer } from "./common";
+import { observer } from "mobx-react-lite";
+import { programStorage } from "./stores";
+
+const App: React.FC = () => {
+  const { getAllPrograms } = programStorage;
+
+  useEffect(() => {
+    getAllPrograms();
+  }, [getAllPrograms]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainBackground>
+      <Background>
+        <Container>
+          <Header />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/programs" element={<ProgramsPage />} />
+            <Route
+              path="/program/:id"
+              element={<DetailedTrainingProgramPage />}
+            />
+          </Routes>
+        </Container>
+      </Background>
+      <Footer />
+    </MainBackground>
   );
-}
+};
 
-export default App;
+export default observer(App);
