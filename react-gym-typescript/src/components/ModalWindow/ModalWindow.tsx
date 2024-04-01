@@ -3,7 +3,15 @@ import React from "react";
 import { ModalContent, ModalStyle, ModalIsClosed, ModalButton } from "./style";
 import { ProgramButtonContainer } from "../../common";
 
-export const ModalWindow = ({ activeModal, setActiveModal, children }) => {
+export const ModalWindow = ({
+  activeModal,
+  setActiveModal,
+  children,
+}: {
+  activeModal: boolean;
+  setActiveModal: any;
+  children: any;
+}) => {
   if (!activeModal) return <ModalIsClosed />;
 
   return (

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { ButtonStyle } from "../../common/ui/Container";
 import { TitlePattern } from "../../common/ui/Title";
+import type { PaginationLiProps } from "./types";
 
 export const PaginationLayout = styled.div`
   ${TitlePattern}
@@ -20,13 +21,13 @@ export const PaginationBlock = styled.div`
   width: 350px;
 `;
 
-export const PaginationLi = styled.li`
+export const PaginationLi = styled.li<{ isActive: boolean }>`
   ${ButtonStyle}
   background-color: transparent;
   font-weight: 400;
   font-size: xx-large;
   text-decoration: none;
 
-  ${({ isActive }) =>
+  ${(isActive) =>
     isActive ? "background: rgb(0, 104, 136); border: #2fb3ff 3px solid;" : ""}
 `;
