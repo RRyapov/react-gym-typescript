@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import { ButtonStyle } from "../../common/ui/Container";
 import { TitlePattern } from "../../common/ui/Title";
-import type { PaginationLiProps } from "./types";
 
 export const PaginationLayout = styled.div`
   ${TitlePattern}
@@ -28,6 +27,6 @@ export const PaginationLi = styled.li<{ isActive: boolean }>`
   font-size: xx-large;
   text-decoration: none;
 
-  ${(isActive) =>
+  ${({ isActive }) =>
     isActive ? "background: rgb(0, 104, 136); border: #2fb3ff 3px solid;" : ""}
 `;

@@ -31,7 +31,9 @@ export const ProgramsPage: React.FC = observer(() => {
         нашим сервисом подбора программы тренировок. Желаем удачи на тропе
         спорта!
       </ProgramPrevWord>
-      <ProgramFinalWord>С уважением, команда React Gym</ProgramFinalWord>
+      <ProgramFinalWord>
+        <span>С уважением, команда React Gym</span>
+      </ProgramFinalWord>
       <ProgramButtonContainer>
         <ProgramButton>Подобрать программу тренировок</ProgramButton>
       </ProgramButtonContainer>

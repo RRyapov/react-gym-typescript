@@ -5,11 +5,7 @@ import { PaginationLayout, PaginationBlock, PaginationLi } from "./styles";
 import { programStorage } from "../../stores";
 
 export const Pagination = observer(() => {
-  const { pageCount, pageNumber, setPageNumber } = programStorage;
-  const pageNumbers = [];
-  for (let i = 1; i <= pageCount; i++) {
-    pageNumbers.push(i);
-  }
+  const { pageNumbers, pageNumber, setPageNumber } = programStorage;
 
   return (
     <PaginationLayout>

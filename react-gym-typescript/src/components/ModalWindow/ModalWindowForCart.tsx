@@ -1,25 +1,21 @@
-import React from "react";
+import React, { FC, ReactNode } from "react";
 
 import { ModalContent, ModalStyle, ModalIsClosed, ModalButton } from "./style";
 import { ProgramButtonContainer } from "../../common";
 
-export const ModalWindow = ({
-  activeModal,
-  setActiveModal,
-  children,
-}: {
+export const ModalWindowForCart: FC<{
   activeModal: boolean;
-  setActiveModal: any;
-  children: any;
-}) => {
+  setActiveModal: (v: boolean) => void;
+  children: ReactNode;
+}> = ({ activeModal, setActiveModal, children }) => {
   if (!activeModal) return <ModalIsClosed />;
 
   return (
-    <ModalStyle onClick={() => setActiveModal(false)}>
+    <ModalStyle>
       <ModalContent>
         {children}
         <ProgramButtonContainer>
-          <ModalButton>O K</ModalButton>
+          <ModalButton onClick={() => setActiveModal(false)}>O K</ModalButton>
         </ProgramButtonContainer>
       </ModalContent>
     </ModalStyle>

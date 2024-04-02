@@ -23,6 +23,14 @@ class ProgramsStore {
     return Math.ceil(this.allPrograms.length / 3);
   }
 
+  get pageNumbers() {
+    const pageNumbers = [];
+    for (let i = 1; i <= this.pageCount; i++) {
+      pageNumbers.push(i);
+    }
+    return pageNumbers;
+  }
+
   get paginatedPrograms() {
     return this.allPrograms.slice(this.pageNumber * 3 - 3, this.pageNumber * 3);
   }

@@ -14,9 +14,12 @@ import {
   GeneralProgramPageBlock,
   SportArticleTitle,
   ProductsTitlesOnMainPage,
+  ProgramDetailedTitle,
+  ProgramDetailedButtonContainer,
 } from "../common";
 import { programStorage } from "../stores";
-import { ModalTitle, ModalWindow } from "../components";
+import { ModalTitle, ModalWindowForCart } from "../components";
+import { Link } from "react-router-dom";
 
 export const DetailedTrainingProgramPage: React.FC = observer(() => {
   const { getProgram } = programStorage;
@@ -36,28 +39,45 @@ export const DetailedTrainingProgramPage: React.FC = observer(() => {
           Программы тренировок
         </ProductsTitlesOnMainPage>
         <ProgramTitleBlock>
-          <ProgramTitle>
+          <ProgramDetailedTitle>
             <span>{name}</span>
-          </ProgramTitle>
+          </ProgramDetailedTitle>
         </ProgramTitleBlock>
         <ProgramBlock>
           <ProgramDescription>
             <ProgramLongRead>{longText}</ProgramLongRead>
             <SportArticleTitle>{price} руб.</SportArticleTitle>
-            <ProgramButton>
-              <span onClick={() => setActiveModal(true)}>Купить</span>
-            </ProgramButton>
+            <ProgramDetailedButtonContainer>
+              <ProgramButton>
+                <span
+                  onClick={() => {
+                    setActiveModal(true);
+                    setTimeout(() => setActiveModal(false), 3000);
+                  }}
+                >
+                  Купить
+                </span>
+              </ProgramButton>
+              <Link to="/programs">
+                <ProgramButton>
+                  <span>Назад</span>
+                </ProgramButton>
+              </Link>
+            </ProgramDetailedButtonContainer>
           </ProgramDescription>
           <ProgramImage>
             <img src={imageUrl} alt="program" />
           </ProgramImage>
         </ProgramBlock>
       </ProgramPageBlock>
-      <ModalWindow activeModal={activeModal} setActiveModal={setActiveModal}>
+      <ModalWindowForCart
+        activeModal={activeModal}
+        setActiveModal={setActiveModal}
+      >
         <ModalTitle>
           Программа тренировок "{name}" добавлена в корзину.
         </ModalTitle>
-      </ModalWindow>
+      </ModalWindowForCart>
     </GeneralProgramPageBlock>
   );
 });

@@ -84,6 +84,13 @@ export const ProgramTitle = styled.div`
   ${MainTitleStyle}
   text-align: center;
   text-decoration: none;
+  /* margin-bottom: 60px; */
+`;
+
+export const ProgramDetailedTitle = styled.div`
+  ${MainTitleStyle}
+  text-align: center;
+  text-decoration: none;
   margin-bottom: 60px;
 `;
 
@@ -115,18 +122,28 @@ export const ProgramPrevWord = styled.div`
   ${ArticleFontStyle}
   width: auto;
   font-size: 8mm;
-  margin-bottom: 55px;
+  margin-bottom: 5px;
 `;
 
 export const ProgramFinalWord = styled.div`
   ${ArticleFontStyle}
-  width: auto;
+  width: 100%;
   font-size: 8mm;
-  margin-bottom: 2dvb5px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+
   display: flex;
   justify-content: end;
+  /* text-align: end; */
 `;
 
 export const ProgramButtonContainer = styled.div`
   ${FlexCenter}
+  margin-bottom: 45px;
+`;
+
+export const ProgramDetailedButtonContainer = styled.div`
+  ${FlexCenter}
+  justify-content: space-around;
+  width: 300px;
 `;

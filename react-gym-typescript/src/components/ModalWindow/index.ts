@@ -1,2 +1,2 @@
-export * from "./ModalWindow";
+export * from "./ModalWindowForCart";
 export * from "./style";
