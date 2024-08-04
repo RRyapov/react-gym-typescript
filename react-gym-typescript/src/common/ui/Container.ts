@@ -2,36 +2,26 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   max-width: 1336px;
+  min-height: calc(100vh - 30px);
+  height: 100%;
+
   margin: 0px auto;
-  padding: 0px 10px;
-  height: fit-content;
+  padding: 0px 55px;
+
   background-size: cover;
+  background: rgba(0,0,0,0.45);
 `;
 
 export const MainBackground = styled.div`
-  background-image: url("https://i.postimg.cc/7YJSftWs/background-blur.png");
+  background: url("https://i.postimg.cc/7YJSftWs/background-blur.png") no-repeat center center fixed;
 
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-size: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
 `;
 
-export const Background = styled.div`
-  height: auto;
-  min-height: calc(100vh - 30px);
-  width: 1440px;
-  margin: 0 auto;
-
-  background-image: url("https://i.postimg.cc/WbScqSqZ/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  display: flex;
-  justify-content: center;
-`;
 
 export const Footer = styled.div`
   margin-bottom: auto;
