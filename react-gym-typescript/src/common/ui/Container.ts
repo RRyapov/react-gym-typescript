@@ -83,6 +83,9 @@ export const ButtonStyle = css`
   padding-right: 12px;
   transition: all 0.3s ease-in-out;
 
+  .hang {
+  }
+
   &:hover {
     ${BlueBlink}
     transform: scale(1.1);

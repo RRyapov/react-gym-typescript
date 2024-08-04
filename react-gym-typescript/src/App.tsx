@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { Header } from "./components";
 import { ProgramsPage, DetailedTrainingProgramPage, MainPage } from "./pages";
 import { Routes, Route } from "react-router-dom";
-
 import { Container, MainBackground, Background, Footer } from "./common";
 import { observer } from "mobx-react-lite";
 import { programStorage } from "./stores";
+
+
 
 const App: React.FC = () => {
   const { getAllPrograms } = programStorage;

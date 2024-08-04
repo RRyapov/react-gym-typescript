@@ -12,3 +12,7 @@ export type ProgramType = {
 };
 
 export type ProgramTypes = ProgramType[];
+
+export enum filtersEnum {
+  GENDER = "gender",
+}

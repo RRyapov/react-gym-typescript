@@ -1,11 +1,14 @@
-import axios from "axios";
+import ky from "ky";
 import { makeAutoObservable } from "mobx";
 import { ProgramType, ProgramTypes } from "./types";
+import { dropdownStorage } from "./dropdownStores";
 
 class ProgramsStore {
   _programs: ProgramTypes = [];
   _pageNumber = 1;
   _chosenPageNumber = 0;
+
+  _filterStorage = dropdownStorage;
 
   constructor() {
     makeAutoObservable(this);
@@ -19,8 +22,21 @@ class ProgramsStore {
     return this._pageNumber;
   }
 
+  get filteredPrograms() {
+    return this.allPrograms.filter((item) => {
+      const activeFilters = this._filterStorage.activeFilters;
+
+      if (activeFilters)
+        for (let { key, value } of activeFilters) {
+          if (item[key as keyof ProgramType] !== value) return false;
+        }
+
+      return true;
+    });
+  }
+
   get pageCount() {
-    return Math.ceil(this.allPrograms.length / 3);
+    return Math.ceil(this.filteredPrograms.length / 3);
   }
 
   get pageNumbers() {
@@ -31,8 +47,8 @@ class ProgramsStore {
     return pageNumbers;
   }
 
-  get paginatedPrograms() {
-    return this.allPrograms.slice(this.pageNumber * 3 - 3, this.pageNumber * 3);
+  get paginatedAndFilteredPrograms() {
+    return this.filteredPrograms.slice(this.pageNumber * 3 - 3, this.pageNumber * 3);
   }
 
   setPageNumber = (page: number) => {
@@ -44,12 +60,13 @@ class ProgramsStore {
     return this._programs.find(({ id }) => +id === +programId) ?? null;
   };
 
-  getAllPrograms = () => {
-    axios
-      .get<ProgramTypes>("http://localhost:3001/programs")
-      .then(({ data }) => {
-        this._programs = data;
-      });
+  getAllPrograms = async () => {
+    try {
+      const response = await ky.get("http://localhost:3001/programs").json<ProgramType[]>();
+      this._programs = response;
+    } catch (error) {
+      console.error("Failed to fetch programs", error);
+    }
   };
 
   getNextIdProgram = (id: number) => {

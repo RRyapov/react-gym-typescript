@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import ky from "ky";
 
 import {
   ProgramBlock,
   ProgramImage,
   ProgramDescription,
   ProgramTitleBlock,
-  ProgramTitle,
   ProgramButton,
   ProgramPageBlock,
   ProgramLongRead,
@@ -17,20 +18,22 @@ import {
   ProgramDetailedTitle,
   ProgramDetailedButtonContainer,
 } from "../common";
-import { programStorage } from "../stores";
+import { programStorage, ProgramTypes } from "../stores";
 import { ModalTitle, ModalWindowForCart } from "../components";
 import { Link } from "react-router-dom";
 
 export const DetailedTrainingProgramPage: React.FC = observer(() => {
-  const { getProgram } = programStorage;
-  const { id } = useParams();
-  const programInfo = getProgram(+(id ?? ""));
 
-  const [activeModal, setActiveModal] = useState(false);
+const { getProgram } = programStorage;
+const { id } = useParams();
+const programInfo = getProgram(+(id ?? ""));
 
-  if (!programInfo) return <></>;
+const [activeModal, setActiveModal] = useState(false);
+
+if (!programInfo) return <></>;
 
   const { imageUrl, name, longText, price } = programInfo;
+
 
   return (
     <GeneralProgramPageBlock>
