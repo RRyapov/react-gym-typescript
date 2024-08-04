@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from "react";
 
-import { ModalContent, ModalStyle, ModalIsClosed, ModalButton } from "./style";
 import { ProgramButtonContainer } from "../../common";
+import { ModalContent, ModalStyle, ModalIsClosed, ModalButton } from "./style";
 
 export const ModalWindowForCart: FC<{
   activeModal: boolean;

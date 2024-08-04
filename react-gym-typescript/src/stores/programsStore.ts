@@ -1,7 +1,7 @@
 import ky from "ky";
 import { makeAutoObservable } from "mobx";
-import { ProgramType, ProgramTypes } from "./types";
 import { dropdownStorage } from "./dropdownStores";
+import { ProgramType, ProgramTypes } from "./types";
 
 class ProgramsStore {
   _programs: ProgramTypes = [];

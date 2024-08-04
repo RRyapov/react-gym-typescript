@@ -1,7 +1,7 @@
+import { observer } from "mobx-react-lite";
 import React from "react";
 import { DropdownFreeSpace, DropdownTitle, GeneralDropdownBlock, ProgramDropdownBlock } from "../../common/ui/Dropdowns";
 import { dropdownStorage } from "../../stores/dropdownStores";
-import { observer } from "mobx-react-lite";
 // import { genders } from "../../common";
 
 export const ProgramDropdown: React.FC = () => {

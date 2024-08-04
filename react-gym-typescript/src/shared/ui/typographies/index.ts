@@ -1,0 +1,2 @@
+export { MainTitle } from "./Typographies";
+
