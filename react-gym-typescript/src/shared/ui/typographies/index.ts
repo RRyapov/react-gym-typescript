@@ -1,2 +1,2 @@
-export { MainTitle } from "./Typographies";
+export { MainTitle, MediumTitle, ArticleText, ArticleTitle } from "./Typographies";
 

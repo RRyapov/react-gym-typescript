@@ -2,7 +2,6 @@ import styled, { RuleSet } from "styled-components";
 
 import { FlexCenter, ButtonStyle } from "./Container";
 import {
-  TitlePattern,
   ArticleFontStyle,
   BlackTextShadow,
   BoldTitles,
@@ -10,8 +9,8 @@ import {
 } from "./Title";
 
 export const MainSpace = styled.div`
-  height: fit-content;
-  max-height: max-content;
+  /* height: fit-content;
+  max-height: max-content; */
 `;
 
 export const GeneralTitle = styled.div`
@@ -50,10 +49,6 @@ export const ProductCardImage = styled.div`
   }
 `;
 
-export const ProductCardTitle = styled.div`
-  ${TitlePattern}
-`;
-
 export const ProductCardButton = styled.button<{
   commonStyles?: RuleSet<object>;
 }>`
@@ -71,9 +66,9 @@ export const TrainerAdviceContainer = styled.div`
   flex-direction: column;
 `;
 
-export const TrainerAdviceArticle = styled.section`
-  ${ArticleFontStyle}
-`;
+// export const TrainerAdviceArticle = styled.section`
+//   ${ArticleFontStyle}
+// `;
 
 export const TrainerAvatar = styled.div`
   margin: 45px;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 import { ButtonStyle } from "../../common/ui/Container";
-import { TitlePattern } from "../../common/ui/Title";
+
 
 export const PaginationLayout = styled.div`
-  ${TitlePattern}
+
   display: flex;
   flex-direction: row;
   list-style-type: none;

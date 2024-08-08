@@ -8,7 +8,6 @@ import App from "./App";
 import "./index.css";
 
 const queryClient = new QueryClient();
-console.log("queryClient: ", queryClient);
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

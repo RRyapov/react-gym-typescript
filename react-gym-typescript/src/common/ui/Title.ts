@@ -39,18 +39,18 @@ export const BlackTextShadow = css`
     2px -2px 2px #000000, -2px 2px 2px #000000, 2px 2px 2px #000000;
 `;
 
-export const TitlePattern = css`
-  ${FlexCenter}
-  font-family: "Arial", cursive;
-  font-weight: 400;
-  font-size: 11mm;
-  font-style: italic;
+// export const TitlePattern = css`
+//   ${FlexCenter}
+//   font-family: "Arial", cursive;
+//   font-weight: 400;
+//   font-size: 11mm;
+//   font-style: italic;
 
-  color: #37dbff;
-  ${BlackTextShadow}
+//   color: #37dbff;
+//   ${BlackTextShadow}
 
-  margin-bottom: 25px;
-`;
+//   margin-bottom: 25px;
+// `;
 export const ArticleFontStyle = css`
   ${FlexCenter}
   font-family: "Arial", cursive;
