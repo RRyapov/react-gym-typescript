@@ -1,5 +1,7 @@
 import { Box, styled } from "@mui/material";
 
+// ============== Общие стили =================
+
 export const FlexCenter = {
 	display: "flex",
 	justifyContent: "center",
@@ -21,7 +23,20 @@ export const EndLineStyle = {
 	marginTop: "65px",
 };
 
+// ============== Стили Карточки продукта =================
+
 export const StyledContainer = styled(Box)({
+	...FlexCenter,
+	flexDirection: "column",
+});
+
+export const ProductContainer = styled(Box)({
+	...FlexCenter,
+	flexDirection: "row",
+	justifyContent: "space-between",
+});
+
+export const ProductCardOnMainPage = styled(Box)({
 	...FlexCenter,
 	flexDirection: "column",
 });

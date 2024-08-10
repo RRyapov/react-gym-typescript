@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { MainTitle } from "@shared/ui/typographies";
+import { ArticleTitle, MainTitle } from "@shared/ui/typographies";
 import {
 	ProgramBlock,
 	ProgramImage,
@@ -15,13 +15,11 @@ import {
 	ProgramPageBlock,
 	ProgramLongRead,
 	GeneralProgramPageBlock,
-	SportArticleTitle,
-	ProductsTitlesOnMainPage,
 	ProgramDetailedTitle,
 	ProgramDetailedButtonContainer,
 } from "../common";
 import { ModalTitle, ModalWindowForCart } from "../components";
-import { programStorage, ProgramTypes } from "../stores";
+import { programStorage } from "../stores";
 
 export const DetailedTrainingProgramPage: React.FC = observer(() => {
 	const { getProgram } = programStorage;
@@ -46,7 +44,7 @@ export const DetailedTrainingProgramPage: React.FC = observer(() => {
 				<ProgramBlock>
 					<ProgramDescription>
 						<ProgramLongRead>{longText}</ProgramLongRead>
-						<SportArticleTitle>{price} руб.</SportArticleTitle>
+						<ArticleTitle>{price} руб.</ArticleTitle>
 						<ProgramDetailedButtonContainer>
 							<ProgramButton>
 								<span

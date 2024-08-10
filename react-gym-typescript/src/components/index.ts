@@ -1,4 +1,4 @@
 export * from "./ModalWindow";
 export * from "./Pagination";
 export * from "./TrainingProgram";
-export * from "./Header";
+export * from "../widgets/ui/Header/Header";

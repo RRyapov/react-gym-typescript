@@ -1,9 +1,10 @@
-import { ProductsOnMainPage, ProductContainer } from "common";
+import { ProductsOnMainPage } from "common";
 import { type FC } from "react";
 import { useQueryProductsForMainPage } from "@entities/products/model/services/query";
 import { ProductsForMainPageResponse } from "@entities/products/model/types/types";
-import { ProductCard } from "@entities/products/ui/ProductCard";
+import { ProductCard } from "@entities/products/ui/ProductCard/ProductCard";
 import { EndLine } from "@shared/ui/additionalElements/EndLine";
+import { ProductContainer } from "@shared/ui/generalStyles/generalStyles";
 import ProductCardLoader from "@shared/ui/loaders/ProductCardLoader";
 import { MainTitle } from "@shared/ui/typographies";
 
