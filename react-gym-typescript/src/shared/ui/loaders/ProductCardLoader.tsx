@@ -1,7 +1,6 @@
 import { Box, Container, styled } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-// import { ProductCardOnMainPage } from "common";
 import { FC } from "react";
 import { FlexCenter } from "../generalStyles/generalStyles";
 

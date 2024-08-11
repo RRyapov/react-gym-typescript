@@ -7,10 +7,10 @@ import {
   MainTitleStyle,
 } from "./Title";
 
-export const MainSpace = styled.div`
-  /* height: fit-content;
-  max-height: max-content; */
-`;
+// export const MainSpace = styled.div`
+//   /* height: fit-content;
+//   max-height: max-content; */
+// `;
 
 export const GeneralTitle = styled.div`
   ${BoldTitles}

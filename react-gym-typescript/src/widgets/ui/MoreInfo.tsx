@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { ButtonForDetails } from "@shared/ui/buttons/buttons";
+import { StyledButton } from "@shared/ui/buttons/buttons";
 import { StyledContainer } from "@shared/ui/generalStyles/generalStyles";
 import { MainTitle } from "@shared/ui/typographies";
 import { ArticleTitle } from "@shared/ui/typographies/Typographies";
@@ -14,7 +14,7 @@ const MoreInfo: FC = () => {
 				<ArticleTitle children={"Первая помощь при растяжениях мышц и связок"} />
 			</StyledContainer>
 
-			<ButtonForDetails />
+			<StyledButton children={"Подробнее"} />
 		</StyledContainer>
 	);
 };

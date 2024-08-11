@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 	},
 });
 
-const App: React.FC = () => {
+const App: FC = () => {
 	const { getAllPrograms } = programStorage;
 
 	useEffect(() => {

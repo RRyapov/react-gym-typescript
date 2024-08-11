@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, SxProps, Theme } from "@mui/material";
 import { FC } from "react";
 import { TextShadow, FlexCenter } from "@shared/ui/generalStyles/generalStyles";
 
 type TitleProps = {
 	children: React.ReactNode;
+	sx?: SxProps<Theme> | undefined;
 };
 
 const TitleContainer = styled(Box)({
@@ -14,6 +15,23 @@ const TitleContainer = styled(Box)({
 	marginTop: "10px",
 	transition: "all 1s ease-in-out",
 	textAlign: "center",
+});
+
+const LastWordContainer = styled(Box)({
+	display: "flex",
+	justifyContent: "end",
+	width: "100%",
+	height: "fit-content",
+	marginTop: "15px",
+	marginBottom: "25px",
+});
+
+const ProgramShortReadContainer = styled(Box)({
+	marginBottom: "35px",
+	marginTop: "45px",
+});
+const ProgramLongReadContainer = styled(Box)({
+	maxWidth: "530px",
 });
 
 const MainTitleTypography = styled(Typography)({
@@ -44,7 +62,7 @@ const ArticleTextTypography = styled(Typography)({
 	...TextShadow,
 	fontFamily: '"Arial", cursive',
 	fontWeight: 400,
-	fontSize: "9mm",
+	fontSize: "8mm",
 	fontStyle: "italic",
 
 	color: "#ffffff",
@@ -90,19 +108,26 @@ export const MediumTitle: FC<TitleProps> = ({ children }) => (
 	</TitleContainer>
 );
 
-export const ArticleText: FC = () => (
+export const ArticleText: FC<TitleProps> = ({ children }) => (
 	<TitleContainer>
-		<ArticleTextTypography>
-			Люди думают, что знаменитости проводят в спортзале по полдня, поэтому так хорошо и выглядят. Но это не так: у большинства селебрити есть максимум час на
-			тренировку. Дело не в том, как долго вы работаете, а в том, насколько усердно. Своим подопечным я рекомендую интервальные тренировки, например, по такой
-			схеме: 15 секунд отжиманий, 10 секунд отдыха, 15 секунд выпадов, 10 секунд отдыха, 15 секунд бега с высоким подъемом коленей, 10 секунд отдыха, 15 секунд
-			прыжков из стороны в стороны, 10 секунд отдыха». Если выполнить несколько таких «кругов» подряд, то даже получасовая тренировка будет весьма эффективной
-		</ArticleTextTypography>
+		<ArticleTextTypography>{children}</ArticleTextTypography>
 	</TitleContainer>
+);
+
+export const LastWordText: FC<TitleProps> = ({ children }) => (
+	<LastWordContainer>
+		<ArticleTextTypography>{children}</ArticleTextTypography>
+	</LastWordContainer>
 );
 
 export const ArticleTitle: FC<TitleProps> = ({ children }) => (
 	<TitleContainer>
 		<ArticleTitleTypography>{children}</ArticleTitleTypography>
 	</TitleContainer>
+);
+
+export const ProgramShortRead: FC<TitleProps> = ({ children }) => (
+	<ProgramShortReadContainer>
+		<ArticleTextTypography>{children}</ArticleTextTypography>
+	</ProgramShortReadContainer>
 );

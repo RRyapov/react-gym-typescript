@@ -1,12 +1,7 @@
 import { Button, styled } from "@mui/material";
-import { FC } from "react";
 import { BlueBlink, FlexCenter } from "../generalStyles/generalStyles";
 
-type ButtonProps = {
-	children: React.ReactNode;
-};
-
-const StyledButton = styled(Button)({
+export const StyledButton = styled(Button)({
 	textTransform: "unset",
 	...FlexCenter,
 
@@ -27,11 +22,11 @@ const StyledButton = styled(Button)({
 	paddingBottom: "5px",
 	paddingLeft: "12px",
 	paddingRight: "12px",
-	transition: "all 0.3s ease-in-out",
+	transition: "all 0.1s ease-in-out",
 
 	"&:hover": {
 		...BlueBlink,
-		transform: "scale(1.1)",
+		transform: "scale(1.01)",
 		cursor: "pointer",
 
 		"&:active": {
@@ -40,7 +35,3 @@ const StyledButton = styled(Button)({
 		},
 	},
 });
-
-export const GeneralButton: FC<ButtonProps> = ({ children }) => <StyledButton>{children}</StyledButton>;
-
-export const ButtonForDetails: FC = () => <StyledButton>Подробнее</StyledButton>;

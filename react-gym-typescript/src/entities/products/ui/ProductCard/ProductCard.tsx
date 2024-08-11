@@ -1,7 +1,7 @@
 // import { ProductCardOnMainPage } from "common";
 import { FC } from "react";
-import { ProductCardOnMainPage } from "@shared/ui/generalStyles/generalStyles";
-import { ButtonForDetails } from "../../../../shared/ui/buttons/buttons";
+import { StyledContainer } from "@shared/ui/generalStyles/generalStyles";
+import { StyledButton } from "../../../../shared/ui/buttons/buttons";
 import { ProductImageBox } from "../../../../shared/ui/images/imageStyles";
 import { MediumTitle } from "../../../../shared/ui/typographies";
 
@@ -14,7 +14,7 @@ type ProductCardProps = {
 export const ProductCard: FC<ProductCardProps> = (props) => {
 	const { imageUrl, imageAlt, titleText } = props;
 	return (
-		<ProductCardOnMainPage>
+		<StyledContainer>
 			<ProductImageBox>
 				<img
 					src={imageUrl}
@@ -22,7 +22,7 @@ export const ProductCard: FC<ProductCardProps> = (props) => {
 				/>
 			</ProductImageBox>
 			<MediumTitle children={titleText} />
-			<ButtonForDetails />
-		</ProductCardOnMainPage>
+			<StyledButton children={"Подробнее"} />
+		</StyledContainer>
 	);
 };

@@ -1,25 +1,23 @@
-import React from "react";
+import { type FC } from "react";
 import { Link } from "react-router-dom";
 
+import { StyledButton } from "@shared/ui/buttons/buttons";
+import { ProgramDescription, ProgramImage } from "@shared/ui/generalStyles/generalStyles";
 import { MainTitle } from "@shared/ui/typographies";
-import { ProgramDescription, ProgramShortRead, ProgramTitle, ProgramButton, ProgramImage } from "../../common";
+import { ProgramShortRead } from "@shared/ui/typographies/Typographies";
 import { ITrainingProgram } from "./types";
 
 export const Description: React.FC<ITrainingProgram> = ({ id, name, shortText }) => (
 	<ProgramDescription>
-		<MainTitle>
-			<span>{name}</span>
-		</MainTitle>
-		<ProgramShortRead>{shortText}</ProgramShortRead>
+		<MainTitle children={name} />
+		<ProgramShortRead children={shortText} />
 		<Link to={`/program/${id}`}>
-			<ProgramButton>
-				<span>Подробнее</span>
-			</ProgramButton>
+			<StyledButton children={"Подробнее"} />
 		</Link>
 	</ProgramDescription>
 );
 
-export const Image: React.FC<ITrainingProgram> = ({ id, imageUrl }) => (
+export const Image: FC<ITrainingProgram> = ({ id, imageUrl }) => (
 	<ProgramImage>
 		<img
 			src={imageUrl}
