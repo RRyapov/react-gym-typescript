@@ -21,7 +21,7 @@ import {
 import { ModalTitle, ModalWindowForCart } from "../components";
 import { programStorage } from "../stores";
 
-export const DetailedTrainingProgramPage: React.FC = observer(() => {
+export const DetailedProgramPage: React.FC = observer(() => {
 	const { getProgram } = programStorage;
 	const { id } = useParams();
 	const programInfo = getProgram(+(id ?? ""));

@@ -1,9 +1,10 @@
-import React from "react";
+import { type FC } from "react";
+import { ITrainingProgram, trainingProgramPosition } from "@entities/trainingProgram/model/types";
+import { Description } from "@entities/trainingProgram/ui/Description";
+import { Image } from "@entities/trainingProgram/ui/Image";
 import { ProgramBlock } from "@shared/ui/generalStyles/generalStyles";
-import { Description, Image } from "./Description";
-import { ITrainingProgram, trainingProgramPosition } from "./types";
 
-export const TrainingProgram: React.FC<ITrainingProgram> = (props) => {
+export const TrainingProgram: FC<ITrainingProgram> = (props) => {
 	return (
 		<ProgramBlock>
 			{props.position === trainingProgramPosition.right && (

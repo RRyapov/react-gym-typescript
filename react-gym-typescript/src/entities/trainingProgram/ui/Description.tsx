@@ -5,9 +5,9 @@ import { StyledButton } from "@shared/ui/buttons/buttons";
 import { ProgramDescription, ProgramImage } from "@shared/ui/generalStyles/generalStyles";
 import { MainTitle } from "@shared/ui/typographies";
 import { ProgramShortRead } from "@shared/ui/typographies/Typographies";
-import { ITrainingProgram } from "./types";
+import { ITrainingProgram } from "../model/types";
 
-export const Description: React.FC<ITrainingProgram> = ({ id, name, shortText }) => (
+export const Description: FC<ITrainingProgram> = ({ id, name, shortText }) => (
 	<ProgramDescription>
 		<MainTitle children={name} />
 		<ProgramShortRead children={shortText} />
@@ -15,13 +15,4 @@ export const Description: React.FC<ITrainingProgram> = ({ id, name, shortText })
 			<StyledButton children={"Подробнее"} />
 		</Link>
 	</ProgramDescription>
-);
-
-export const Image: FC<ITrainingProgram> = ({ id, imageUrl }) => (
-	<ProgramImage>
-		<img
-			src={imageUrl}
-			alt={`program-${id}`}
-		/>
-	</ProgramImage>
 );

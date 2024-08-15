@@ -1,15 +1,17 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import { type FC } from "react";
 
+import { TrainingProgram } from "@widgets/ui/TrainingProgram";
+import { trainingProgramPosition } from "@entities/trainingProgram/model/types";
 import { StyledButton } from "@shared/ui/buttons/buttons";
 import { ProgramButtonContainer, ProgramPageBlock } from "@shared/ui/generalStyles/generalStyles";
 import { ArticleText, LastWordText, MainTitle } from "@shared/ui/typographies/Typographies";
-import { Pagination, TrainingProgram, trainingProgramPosition } from "../components";
-import ProgramDropdown from "../components/Dropdowns/ProgramDropdown";
-import { programStorage } from "../stores";
-import { dropdownStorage } from "../stores/dropdownStores";
+import { Pagination } from "../../../components";
+import ProgramDropdown from "../../../components/Dropdowns/ProgramDropdown";
+import { programStorage } from "../../../stores";
+import { dropdownStorage } from "../../../stores/dropdownStores";
 
-export const ProgramsPage: React.FC = observer(() => {
+export const ProgramsPage: FC = observer(() => {
 	const { paginatedAndFilteredPrograms } = programStorage;
 	const { visibleProgramDropdown, setVisibleProgramDropdown } = dropdownStorage;
 
