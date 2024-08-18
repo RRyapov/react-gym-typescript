@@ -4,7 +4,7 @@ import { type FC } from "react";
 import { TrainingProgram } from "@widgets/ui/TrainingProgram";
 import { trainingProgramPosition } from "@entities/trainingProgram/model/types";
 import { StyledButton } from "@shared/ui/buttons/buttons";
-import { ProgramButtonContainer, ProgramPageBlock } from "@shared/ui/generalStyles/generalStyles";
+import { ProgramButtonContainer, BuyItemBlock } from "@shared/ui/generalStyles/generalStyles";
 import { ArticleText, LastWordText, MainTitle } from "@shared/ui/typographies/Typographies";
 import { Pagination } from "../../../components";
 import ProgramDropdown from "../../../components/Dropdowns/ProgramDropdown";
@@ -16,7 +16,7 @@ export const ProgramsPage: FC = observer(() => {
 	const { visibleProgramDropdown, setVisibleProgramDropdown } = dropdownStorage;
 
 	return (
-		<ProgramPageBlock>
+		<BuyItemBlock>
 			<MainTitle children={"Программы тренировок"} />
 			<ArticleText
 				children={
@@ -44,6 +44,6 @@ export const ProgramsPage: FC = observer(() => {
 				);
 			})}
 			<Pagination />
-		</ProgramPageBlock>
+		</BuyItemBlock>
 	);
 });

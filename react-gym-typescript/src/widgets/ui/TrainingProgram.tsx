@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import { ITrainingProgram, trainingProgramPosition } from "@entities/trainingProgram/model/types";
-import { Description } from "@entities/trainingProgram/ui/Description";
-import { Image } from "@entities/trainingProgram/ui/Image";
+import { BuyItemGeneralDescription } from "@entities/trainingProgram/ui/BuyItemGeneralDescription";
+import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
 import { ProgramBlock } from "@shared/ui/generalStyles/generalStyles";
 
 export const TrainingProgram: FC<ITrainingProgram> = (props) => {
@@ -9,14 +9,14 @@ export const TrainingProgram: FC<ITrainingProgram> = (props) => {
 		<ProgramBlock>
 			{props.position === trainingProgramPosition.right && (
 				<>
-					<Description {...props} />
-					<Image {...props} />
+					<BuyItemGeneralDescription {...props} />
+					<BuyItemImage {...props} />
 				</>
 			)}
 			{props.position === trainingProgramPosition.left && (
 				<>
-					<Image {...props} />
-					<Description {...props} />
+					<BuyItemImage {...props} />
+					<BuyItemGeneralDescription {...props} />
 				</>
 			)}
 		</ProgramBlock>

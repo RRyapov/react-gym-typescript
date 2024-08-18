@@ -8,6 +8,14 @@ type TitleProps = {
 	sx?: SxProps<Theme> | undefined;
 };
 
+const TitleContainerStyle = {
+	width: "100%",
+	height: "fit-content",
+	marginTop: "10px",
+	transition: "all 1s ease-in-out",
+	textAlign: "center",
+};
+
 const TitleContainer = styled(Box)({
 	...FlexCenter,
 	width: "100%",
@@ -15,6 +23,16 @@ const TitleContainer = styled(Box)({
 	marginTop: "10px",
 	transition: "all 1s ease-in-out",
 	textAlign: "center",
+});
+
+const PriceTextContainer = styled(Box)({
+	...FlexCenter,
+	width: "100%",
+	height: "fit-content",
+	transition: "all 1s ease-in-out",
+	textAlign: "center",
+	marginTop: "20px",
+	marginBottom: "20px",
 });
 
 const LastWordContainer = styled(Box)({
@@ -30,8 +48,11 @@ const ProgramShortReadContainer = styled(Box)({
 	marginBottom: "35px",
 	marginTop: "45px",
 });
+
 const ProgramLongReadContainer = styled(Box)({
-	maxWidth: "530px",
+	maxWidth: "750px",
+	width: "fit-content",
+	marginBottom: "35px",
 });
 
 const MainTitleTypography = styled(Typography)({
@@ -71,10 +92,7 @@ const ArticleTextTypography = styled(Typography)({
 	lineHeight: "50px",
 });
 
-const ArticleTitleTypography = styled(Typography)({
-	...FlexCenter,
-	...TextShadow,
-
+const ArticleTitleTextTypography = {
 	marginTop: "20px",
 
 	fontFamily: '"Arial", sans-serif',
@@ -94,6 +112,24 @@ const ArticleTitleTypography = styled(Typography)({
 		transform: "scale(0.975)",
 		transition: "none",
 	},
+};
+
+const BuyItemLongReadTypography = styled(Typography)({
+	...FlexCenter,
+	...TextShadow,
+	...ArticleTitleTextTypography,
+	// width: "750px",
+	fontSize: "8mm",
+	// marginLeft: "25px",
+	marginBottom: "-70px",
+	marginTop: "20px",
+	textAlign: "center",
+});
+
+const ArticleTitleTypography = styled(Typography)({
+	...FlexCenter,
+	...TextShadow,
+	...ArticleTitleTextTypography,
 });
 
 export const MainTitle: FC<TitleProps> = ({ children }) => (
@@ -126,8 +162,20 @@ export const ArticleTitle: FC<TitleProps> = ({ children }) => (
 	</TitleContainer>
 );
 
-export const ProgramShortRead: FC<TitleProps> = ({ children }) => (
+export const PriceText: FC<TitleProps> = ({ children }) => (
+	<PriceTextContainer>
+		<ArticleTitleTypography>{children}</ArticleTitleTypography>
+	</PriceTextContainer>
+);
+
+export const BuyItemDescriptionShortRead: FC<TitleProps> = ({ children }) => (
 	<ProgramShortReadContainer>
 		<ArticleTextTypography>{children}</ArticleTextTypography>
 	</ProgramShortReadContainer>
+);
+
+export const BuyItemDescriptionLongRead: FC<TitleProps> = ({ children }) => (
+	<ProgramLongReadContainer>
+		<BuyItemLongReadTypography>{children}</BuyItemLongReadTypography>
+	</ProgramLongReadContainer>
 );

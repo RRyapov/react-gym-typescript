@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
+import { BuyItemFrame } from "@shared/ui/buyItemFrame/BuyItemFrame";
 import { Container, MainBackground, Footer } from "./common";
 import { Header } from "./components";
 import { ProgramsPage, DetailedProgramPage, MainPage } from "./pages";

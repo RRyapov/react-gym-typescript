@@ -23,6 +23,12 @@ export const EndLineStyle = {
 	marginTop: "65px",
 };
 
+export const BuyItemBorder = {
+	border: "3px solid #2fb3ff",
+	borderRadius: "35px",
+	backgroundColor: "rgba(0, 0, 0, 0.5)",
+};
+
 // ============== Стили Карточки продукта =================
 
 export const StyledContainer = styled(Box)({
@@ -38,7 +44,7 @@ export const ProductContainer = styled(Box)({
 
 // ============== Стили ProgramPage =================
 
-export const ProgramPageBlock = styled(Box)({
+export const BuyItemBlock = styled(Box)({
 	width: "100%",
 	height: "fit-content",
 	...FlexCenter,
@@ -68,14 +74,14 @@ export const ProgramBlock = styled(Box)({
 	justifyContent: "space-around",
 });
 
-export const ProgramDescription = styled(Box)({
+export const BuyItemDescription = styled(Box)({
 	...FlexCenter,
-	justifyContent: "space-between",
-	maxWidth: "640px",
-	maxHeight: "800px",
+	justifyContent: "space-around",
+	maxWidth: "740px",
+	maxHeight: "fit-content",
 	flexDirection: "column",
-	marginLeft: "75px",
 	marginBottom: "25px",
+	paddingLeft: "25px",
 
 	a: {
 		textDecoration: "none",
@@ -101,4 +107,52 @@ export const ProgramImage = styled(Box)({
 	"&:hover": {
 		...BlueBlink,
 	},
+});
+
+// ============== Стили Экрана покупки предмета =================
+
+export const GeneralBuyItemBlock = styled(Box)({
+	...FlexCenter,
+});
+
+export const BuyItemTitleBlock = styled(Box)({
+	...BuyItemBorder,
+	...FlexCenter,
+	width: "fit-content",
+	paddingLeft: "35px",
+	paddingRight: "35px",
+	paddingTop: "15px",
+
+	marginBottom: "45px",
+});
+
+export const BuyItemDescriptionBlock = styled(Box)({
+	...BuyItemBorder,
+	...FlexCenter,
+	width: "100%",
+	height: "fit-content",
+	minHeight: "680px",
+	marginBottom: "35px",
+	justifyContent: "space-around",
+});
+
+// ============== Стили Модального окна =================
+
+export const ModalContainer = styled(Box)({
+	height: "100vh",
+	width: "100vw",
+	backgroundColor: "rgba(0, 0, 0, 0.5)",
+	position: "fixed",
+	top: 0,
+	left: 0,
+	// opacity: 1,
+	animation: "ani 2.5s forwards",
+	...FlexCenter,
+});
+
+export const ModalContent = styled(Box)({
+	borderRadius: "25px",
+	width: "400px",
+	background: "radial-gradient(circle,rgba(30, 134, 166, 1) 2%,rgba(152, 238, 255, 1) 54%,rgba(30, 134, 166, 1) 100%)",
+	border: "3px solid #2fb3ff",
 });

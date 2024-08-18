@@ -2,17 +2,17 @@ import { type FC } from "react";
 import { Link } from "react-router-dom";
 
 import { StyledButton } from "@shared/ui/buttons/buttons";
-import { ProgramDescription, ProgramImage } from "@shared/ui/generalStyles/generalStyles";
+import { BuyItemDescription } from "@shared/ui/generalStyles/generalStyles";
 import { MainTitle } from "@shared/ui/typographies";
-import { ProgramShortRead } from "@shared/ui/typographies/Typographies";
+import { BuyItemDescriptionShortRead } from "@shared/ui/typographies/Typographies";
 import { ITrainingProgram } from "../model/types";
 
-export const Description: FC<ITrainingProgram> = ({ id, name, shortText }) => (
-	<ProgramDescription>
+export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({ id, name, shortText }) => (
+	<BuyItemDescription>
 		<MainTitle children={name} />
-		<ProgramShortRead children={shortText} />
+		<BuyItemDescriptionShortRead children={shortText} />
 		<Link to={`/program/${id}`}>
 			<StyledButton children={"Подробнее"} />
 		</Link>
-	</ProgramDescription>
+	</BuyItemDescription>
 );
