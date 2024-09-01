@@ -1,19 +1,39 @@
+//@ts-nocheck
+
+import Pagination from "@mui/material/Pagination";
 import { observer } from "mobx-react-lite";
-import { type FC } from "react";
+import { useState, type FC } from "react";
 
 import { TrainingProgram } from "@widgets/ui/TrainingProgram";
-import { trainingProgramPosition } from "@entities/trainingProgram/model/types";
+import { useQueryPrograms } from "@entities/trainingProgram/model/services/query";
+import { trainingProgramPosition } from "@entities/trainingProgram/model/types/types";
 import { StyledButton } from "@shared/ui/buttons/buttons";
 import { ProgramButtonContainer, BuyItemBlock } from "@shared/ui/generalStyles/generalStyles";
 import { ArticleText, LastWordText, MainTitle } from "@shared/ui/typographies/Typographies";
-import { Pagination } from "../../../components";
 import ProgramDropdown from "../../../components/Dropdowns/ProgramDropdown";
-import { programStorage } from "../../../stores";
 import { dropdownStorage } from "../../../stores/dropdownStores";
 
 export const ProgramsPage: FC = observer(() => {
-	const { paginatedAndFilteredPrograms } = programStorage;
 	const { visibleProgramDropdown, setVisibleProgramDropdown } = dropdownStorage;
+
+	const { data: requestedPrograms, isLoading } = useQueryPrograms();
+
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 3; // количество элементов на странице
+
+	if (isLoading) {
+		return <></>;
+	}
+
+	const indexOfLastProgram = currentPage * itemsPerPage;
+	const indexOfFirstProgram = indexOfLastProgram - itemsPerPage;
+	// const currentItems = requestedPrograms.slice(indexOfFirstProgram, indexOfLastProgram);
+	const currentItems = requestedPrograms[0].programs.slice(indexOfFirstProgram, indexOfLastProgram);
+	console.log("currentItems: ", currentItems);
+
+	const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+		setCurrentPage(newPage);
+	};
 
 	return (
 		<BuyItemBlock>
@@ -33,7 +53,7 @@ export const ProgramsPage: FC = observer(() => {
 			</ProgramButtonContainer>
 
 			{visibleProgramDropdown && <ProgramDropdown />}
-			{paginatedAndFilteredPrograms.map((program) => {
+			{currentItems.map((program) => {
 				const position = program.id % 2 === 0 ? trainingProgramPosition.right : trainingProgramPosition.left;
 				return (
 					<TrainingProgram
@@ -43,7 +63,26 @@ export const ProgramsPage: FC = observer(() => {
 					/>
 				);
 			})}
-			<Pagination />
+
+			<Pagination
+				onChange={handleChangePage}
+				count={5}
+				color="primary"
+				size="large"
+				sx={{
+					"& .MuiButtonBase-root.MuiPaginationItem-root": {
+						margin: "10px 3px !important",
+						minWidth: "45px",
+						border: "3px solid #1dd6ff !important",
+						fontFamily: '"Anton", sans-serif',
+						fontWeight: 500,
+						fontStyle: "normal",
+						fontSize: "6mm",
+						color: "#ffffff",
+					},
+				}}
+				page={currentPage}
+			/>
 		</BuyItemBlock>
 	);
 });

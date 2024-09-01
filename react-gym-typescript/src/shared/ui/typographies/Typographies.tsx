@@ -20,7 +20,7 @@ const TitleContainer = styled(Box)({
 	...FlexCenter,
 	width: "100%",
 	height: "fit-content",
-	marginTop: "10px",
+	// marginTop: "10px",
 	transition: "all 1s ease-in-out",
 	textAlign: "center",
 });

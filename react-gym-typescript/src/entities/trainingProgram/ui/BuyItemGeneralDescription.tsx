@@ -5,7 +5,7 @@ import { StyledButton } from "@shared/ui/buttons/buttons";
 import { BuyItemDescription } from "@shared/ui/generalStyles/generalStyles";
 import { MainTitle } from "@shared/ui/typographies";
 import { BuyItemDescriptionShortRead } from "@shared/ui/typographies/Typographies";
-import { ITrainingProgram } from "../model/types";
+import { ITrainingProgram } from "../model/types/types";
 
 export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({ id, name, shortText }) => (
 	<BuyItemDescription>

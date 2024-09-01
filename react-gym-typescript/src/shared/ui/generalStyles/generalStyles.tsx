@@ -15,6 +15,11 @@ export const TextShadow = {
 
 export const BlueBlink = {
 	background: "linear-gradient(90deg, rgba(30, 134, 166, 1) 2%, rgba(4, 177, 232, 1) 54%, rgba(30, 134, 166, 1) 100%)",
+	boxShadow: "0px 0px 15px 15px rgba(46, 175, 255, 0.9)",
+};
+
+export const BlueBlinkForButton = {
+	background: "linear-gradient(90deg, rgba(30, 134, 166, 1) 2%, rgba(4, 177, 232, 1) 54%, rgba(30, 134, 166, 1) 100%)",
 	boxShadow: "0px 0px 15px 4px rgba(46, 175, 255, 0.9)",
 };
 
@@ -98,6 +103,7 @@ export const ProgramImage = styled(Box)({
 	height: "590px",
 	overflow: "hidden",
 	marginLeft: "45px",
+	marginRight: "25px",
 
 	borderRadius: "50px",
 	boxSizing: "border-box",
@@ -119,11 +125,11 @@ export const BuyItemTitleBlock = styled(Box)({
 	...BuyItemBorder,
 	...FlexCenter,
 	width: "fit-content",
-	paddingLeft: "35px",
-	paddingRight: "35px",
-	paddingTop: "15px",
+	paddingLeft: "25px",
+	paddingRight: "25px",
+	// paddingTop: "15px",
 
-	marginBottom: "45px",
+	margin: "25px 0px",
 });
 
 export const BuyItemDescriptionBlock = styled(Box)({
@@ -151,6 +157,8 @@ export const ModalContainer = styled(Box)({
 });
 
 export const ModalContent = styled(Box)({
+	...FlexCenter,
+	flexDirection: "column",
 	borderRadius: "25px",
 	width: "400px",
 	background: "radial-gradient(circle,rgba(30, 134, 166, 1) 2%,rgba(152, 238, 255, 1) 54%,rgba(30, 134, 166, 1) 100%)",

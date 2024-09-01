@@ -1,4 +1,4 @@
-import type { ProgramType } from "../../../stores";
+import type { ProgramType } from "../../../../stores";
 
 export enum trainingProgramPosition {
   left = "left",

@@ -1,5 +1,5 @@
 import { Button, styled } from "@mui/material";
-import { BlueBlink, FlexCenter } from "../generalStyles/generalStyles";
+import { BlueBlinkForButton, FlexCenter } from "../generalStyles/generalStyles";
 
 
 
@@ -27,7 +27,7 @@ export const StyledButton = styled(Button)({
 	transition: "all 0.1s ease-in-out",
 
 	"&:hover": {
-		...BlueBlink,
+		...BlueBlinkForButton,
 		transform: "scale(1.01)",
 		cursor: "pointer",
 

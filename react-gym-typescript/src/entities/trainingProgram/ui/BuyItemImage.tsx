@@ -2,7 +2,7 @@ import { type FC } from "react";
 
 import { ProgramImage } from "@shared/ui/generalStyles/generalStyles";
 
-import { ITrainingProgram } from "../model/types";
+import { ITrainingProgram } from "../model/types/types";
 
 export const BuyItemImage: FC<Partial<ITrainingProgram>> = ({ id, imageUrl }) => (
 	<ProgramImage>

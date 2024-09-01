@@ -2,6 +2,7 @@ import { useState, type FC } from "react";
 import { Link } from "react-router-dom";
 import { AddedToCartModal } from "@features/modalWindows/addedToCartModalWindow/ui/AddedToCartModal";
 import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
+import { useChangeModalWindow } from "@shared/model/store/modalChangerStore/modalChangerStore";
 import { BuyItemProps } from "@shared/model/types/types";
 import { StyledButton } from "../buttons/buttons";
 import { BuyItemButtonContainer } from "../buttons/buttonsContainers";
@@ -10,7 +11,7 @@ import { ArticleTitle, MainTitle, BuyItemDescriptionLongRead } from "../typograp
 import { PriceText } from "../typographies/Typographies";
 
 export const BuyItemFrame: FC<BuyItemProps> = (props) => {
-	const [activatedModal, setActivatedModal] = useState(false);
+	const { openModalState, setOpenModalState } = useChangeModalWindow();
 	const { title, longText, price, imageUrl, itemType, activeModal, setActiveModal, backLink } = props;
 	return (
 		<GeneralBuyItemBlock>
@@ -26,15 +27,13 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 						<BuyItemButtonContainer>
 							<StyledButton
 								children={"Купить"}
-								// onClick={() => setActivatedModal(true)}
 								onClick={() => {
-									setActivatedModal(true);
-									setTimeout(() => setActivatedModal(false), 3000);
+									setOpenModalState(true);
+									setTimeout(() => setOpenModalState(false), 4000);
 								}}
 							/>
-							<Link to="/programs">
+							<Link to={backLink}>
 								<StyledButton
-									onClick={() => console.log("hi, there")}
 									children={"Назад"}
 								/>
 							</Link>
@@ -43,7 +42,7 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 					<BuyItemImage imageUrl={imageUrl} />
 				</BuyItemDescriptionBlock>
 			</BuyItemBlock>
-			{activatedModal ? (
+			{openModalState ? (
 				<AddedToCartModal
 					activeModal={activeModal}
 					setActiveModal={setActiveModal}

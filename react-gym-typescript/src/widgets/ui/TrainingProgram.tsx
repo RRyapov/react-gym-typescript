@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { ITrainingProgram, trainingProgramPosition } from "@entities/trainingProgram/model/types";
+import { ITrainingProgram, trainingProgramPosition } from "@entities/trainingProgram/model/types/types";
 import { BuyItemGeneralDescription } from "@entities/trainingProgram/ui/BuyItemGeneralDescription";
 import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
 import { ProgramBlock } from "@shared/ui/generalStyles/generalStyles";
