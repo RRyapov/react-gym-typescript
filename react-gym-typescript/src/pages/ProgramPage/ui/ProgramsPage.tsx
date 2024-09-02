@@ -1,10 +1,9 @@
-//@ts-nocheck
-
 import Pagination from "@mui/material/Pagination";
 import { observer } from "mobx-react-lite";
-import { useState, type FC } from "react";
+import { ChangeEvent, useEffect, useRef, useState, type FC } from "react";
 
 import { TrainingProgram } from "@widgets/ui/TrainingProgram";
+import { useCurrentPage } from "@features/pagination/model/store/paginationStore";
 import { useQueryPrograms } from "@entities/trainingProgram/model/services/query";
 import { trainingProgramPosition } from "@entities/trainingProgram/model/types/types";
 import { StyledButton } from "@shared/ui/buttons/buttons";
@@ -18,21 +17,42 @@ export const ProgramsPage: FC = observer(() => {
 
 	const { data: requestedPrograms, isLoading } = useQueryPrograms();
 
-	const [currentPage, setCurrentPage] = useState(1);
+	const { selectedCurrentPage, selectCurrentPage } = useCurrentPage();
 	const itemsPerPage = 3; // количество элементов на странице
+
+	const scrollRef = useRef<number>(0);
+	console.log("scrollRef: ", scrollRef.current.valueOf);
+
+	const handleScroll = () => {
+		scrollRef.current = window.scrollY;
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	useEffect(() => {
+		window.scrollTo(0, scrollRef.current);
+	}, []);
+
+	const handleLearnMoreClick = () => {
+		// Здесь вы сохраняете текущую позицию прокрутки
+		scrollRef.current = window.scrollY;
+	};
 
 	if (isLoading) {
 		return <></>;
 	}
 
-	const indexOfLastProgram = currentPage * itemsPerPage;
+	const indexOfLastProgram = selectedCurrentPage * itemsPerPage;
 	const indexOfFirstProgram = indexOfLastProgram - itemsPerPage;
 	// const currentItems = requestedPrograms.slice(indexOfFirstProgram, indexOfLastProgram);
-	const currentItems = requestedPrograms[0].programs.slice(indexOfFirstProgram, indexOfLastProgram);
+	const currentItems = requestedPrograms ? requestedPrograms[0].programs.slice(indexOfFirstProgram, indexOfLastProgram) : [];
 	console.log("currentItems: ", currentItems);
 
-	const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-		setCurrentPage(newPage);
+	const handleChangePage = (event: ChangeEvent<unknown>, newPage: number) => {
+		selectCurrentPage(newPage);
 	};
 
 	return (
@@ -57,8 +77,12 @@ export const ProgramsPage: FC = observer(() => {
 				const position = program.id % 2 === 0 ? trainingProgramPosition.right : trainingProgramPosition.left;
 				return (
 					<TrainingProgram
+						//@ts-ignore
 						position={position}
 						key={program.id}
+						//@ts-ignore
+
+						onLearnMore={handleLearnMoreClick} // Передаем обработчик в компонент
 						{...program}
 					/>
 				);
@@ -81,7 +105,7 @@ export const ProgramsPage: FC = observer(() => {
 						color: "#ffffff",
 					},
 				}}
-				page={currentPage}
+				page={selectedCurrentPage}
 			/>
 		</BuyItemBlock>
 	);

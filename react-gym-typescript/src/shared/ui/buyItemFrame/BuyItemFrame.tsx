@@ -1,5 +1,5 @@
-import { useState, type FC } from "react";
-import { Link } from "react-router-dom";
+import { type FC } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AddedToCartModal } from "@features/modalWindows/addedToCartModalWindow/ui/AddedToCartModal";
 import { BuyItemImage } from "@entities/trainingProgram/ui/BuyItemImage";
 import { useChangeModalWindow } from "@shared/model/store/modalChangerStore/modalChangerStore";
@@ -12,7 +12,13 @@ import { PriceText } from "../typographies/Typographies";
 
 export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 	const { openModalState, setOpenModalState } = useChangeModalWindow();
-	const { title, longText, price, imageUrl, itemType, activeModal, setActiveModal, backLink } = props;
+	const { title, longText, price, imageUrl, itemType, activeModal, setActiveModal } = props;
+
+	const navigate = useNavigate();
+
+	const goBack = () => {
+		navigate(-1); // Переход на предыдущую страницу
+	};
 	return (
 		<GeneralBuyItemBlock>
 			<BuyItemBlock>
@@ -32,11 +38,10 @@ export const BuyItemFrame: FC<BuyItemProps> = (props) => {
 									setTimeout(() => setOpenModalState(false), 4000);
 								}}
 							/>
-							<Link to={backLink}>
-								<StyledButton
-									children={"Назад"}
-								/>
-							</Link>
+							<StyledButton
+								onClick={goBack}
+								children={"Назад"}
+							/>
 						</BuyItemButtonContainer>
 					</BuyItemDescription>
 					<BuyItemImage imageUrl={imageUrl} />

@@ -7,12 +7,15 @@ import { MainTitle } from "@shared/ui/typographies";
 import { BuyItemDescriptionShortRead } from "@shared/ui/typographies/Typographies";
 import { ITrainingProgram } from "../model/types/types";
 
-export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({ id, name, shortText }) => (
+export const BuyItemGeneralDescription: FC<Partial<ITrainingProgram>> = ({ id, name, shortText, onLearnMore }) => (
 	<BuyItemDescription>
 		<MainTitle children={name} />
 		<BuyItemDescriptionShortRead children={shortText} />
 		<Link to={`/program/${id}`}>
-			<StyledButton children={"Подробнее"} />
+			<StyledButton
+				onClick={onLearnMore}
+				children={"Подробнее"}
+			/>
 		</Link>
 	</BuyItemDescription>
 );

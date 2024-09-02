@@ -9,6 +9,7 @@ export type ProgramType = {
   age: string;
   level: string;
   result: number;
+  onLearnMore: () => void
 };
 
 export type ProgramTypes = ProgramType[];

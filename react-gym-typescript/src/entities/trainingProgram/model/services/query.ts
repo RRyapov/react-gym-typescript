@@ -9,7 +9,6 @@ interface IGetPrograms {
 
 const PROGRAMS = "programs" as const;
 
-
 export const useQueryPrograms = () =>
   useQuery<IGetPrograms[]>({
     queryKey: [PROGRAMS],
